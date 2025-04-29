@@ -1,0 +1,189 @@
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section.bg-dark {
+  color: #f8f9fa;
+}
+
+.about-section.bg-dark .section-title {
+  color: #f8f9fa;
+}
+
+.title-underline {
+  height: 4px;
+  width: 70px;
+  background: linear-gradient(to right, #dc3545, #fd7e14);
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+.about-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.about-image-container:hover {
+  transform: translateY(-10px);
+}
+
+.about-image-container img {
+  transition: transform 0.5s ease;
+}
+
+.about-image-container:hover img {
+  transform: scale(1.05);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 30px;
+  right: -20px;
+  background: #dc3545;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: rotate(-5deg);
+}
+
+.experience-badge .years {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-size: 0.9rem;
+}
+
+.feature-card {
+  padding: 20px;
+  border-radius: 8px;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bg-light .feature-card {
+  background: white;
+  color: #212529;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.bg-dark .feature-card {
+  background: #2c2c2c;
+  color: #f8f9fa;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.bg-light .feature-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.bg-dark .feature-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #dc3545;
+  margin-bottom: 15px;
+}
+
+.mission-vision-section {
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.bg-light .mission-vision-section {
+  background: linear-gradient(135deg, #343a40, #212529);
+}
+
+.bg-dark .mission-vision-section {
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+}
+
+.team-member {
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.member-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.member-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-member:hover .member-img img {
+  transform: scale(1.1);
+}
+
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.bg-light .social-links a {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+.bg-dark .social-links a {
+  background: #2c2c2c;
+  color: #adb5bd;
+}
+
+.social-links a:hover {
+  background: #dc3545;
+  color: white;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 767px) {
+  .experience-badge {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 15px;
+  }
+  
+  .experience-badge .years {
+    font-size: 1.5rem;
+  }
+  
+  .experience-badge .text {
+    font-size: 0.8rem;
+  }
+}
