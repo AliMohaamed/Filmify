@@ -9,7 +9,7 @@ export default class Header extends Component {
           <div className="container">
             {/* Logo */}
             <a className="navbar-brand  text-light" href="/">
-              GII
+            Filmify
             </a>
 
             {/* Toggler for Mobile */}
