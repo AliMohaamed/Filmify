@@ -1,15 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./Movies.css";
-import { MovieDetails } from "./movieDetails/MovieDetails";
 import { ThemeContext } from "../../../context/themeContext";
+import MovieModal from "./MovieModal";
 
 const Movies = ({ movies }) => {
   let [filterMovies, setFilterMovies] = useState(movies);
   let { theme } = useContext(ThemeContext);
-  let [isShow, setIsShow] = useState(false);
-  let onProductDetails = () => {
-    setIsShow(!isShow);
-  };
   let onFilterMovies = (e) => {
     const value = e.target.value;
     setFilterMovies(
@@ -22,7 +18,17 @@ const Movies = ({ movies }) => {
       })
     );
   };
-
+  // Show Product Details
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  function handleClick(movieDetails) {
+    setSelectedMovie(movieDetails);
+    setShowModal(true);
+  }
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedMovie(null);
+  };
   return (
     <>
       <section
@@ -63,7 +69,7 @@ const Movies = ({ movies }) => {
                         <div className="movie-genre">{movie.genre}</div>
                         <button
                           className="action-button"
-                          onClick={onProductDetails}
+                          onClick={() => handleClick(movie)}
                         >
                           <i className="fas fa-info-circle" /> Details
                         </button>
@@ -78,10 +84,10 @@ const Movies = ({ movies }) => {
             <button className="load-more">
               Load More <i className="fas fa-arrow-down ms-2" />
             </button>
-            {isShow && <MovieDetails />}
           </div>
         </div>
       </section>
+      {showModal && selectedMovie && <MovieModal movie={selectedMovie} onClose={handleCloseModal}/>}
     </>
   );
 };
