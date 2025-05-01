@@ -1,10 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Movies.css";
 import { MovieDetails } from "./movieDetails/MovieDetails";
 import { ThemeContext } from "../../../context/themeContext";
 
 const Movies = ({ movies }) => {
+  let [filterMovies, setFilterMovies] = useState(movies);
   let { theme } = useContext(ThemeContext);
+  let [isShow, setIsShow] = useState(false);
+  let onProductDetails = () => {
+    setIsShow(!isShow);
+  };
+  let onFilterMovies = (e) => {
+    const value = e.target.value;
+    setFilterMovies(
+      movies.filter((movie) => {
+        if (movie.title.toLowerCase().includes(value.toLowerCase())) {
+          return movie;
+        } else if (value.length === 0) {
+          return movie;
+        }
+      })
+    );
+  };
+
   return (
     <>
       <section
@@ -12,8 +30,19 @@ const Movies = ({ movies }) => {
       >
         <div className="container">
           <h2 className="section-title">Featured Movies</h2>
+
+          <div className="d-flex justify-content-center align-items-center mb-5 gap-2">
+            <input
+              type="search"
+              name="search"
+              onInput={onFilterMovies}
+              className="form-control w-25"
+              placeholder="Search for movie"
+            />
+          </div>
+
           <div className="row">
-            {movies.map((movie) => {
+            {filterMovies.map((movie) => {
               return (
                 <div
                   className="col-lg-4 col-md-6"
@@ -32,7 +61,10 @@ const Movies = ({ movies }) => {
                       <div className="movie-info">
                         <h3 className="movie-title">{movie.title}</h3>
                         <div className="movie-genre">{movie.genre}</div>
-                        <button className="action-button">
+                        <button
+                          className="action-button"
+                          onClick={onProductDetails}
+                        >
                           <i className="fas fa-info-circle" /> Details
                         </button>
                       </div>
@@ -46,6 +78,7 @@ const Movies = ({ movies }) => {
             <button className="load-more">
               Load More <i className="fas fa-arrow-down ms-2" />
             </button>
+            {isShow && <MovieDetails />}
           </div>
         </div>
       </section>

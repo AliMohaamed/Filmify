@@ -1,3 +1,7 @@
 export function MovieDetails() {
-  return <></>;
+  return (
+    <>
+      <p className="alert alert-danger">TEST</p>
+    </>
+  );
 }
